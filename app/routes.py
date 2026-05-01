@@ -76,7 +76,7 @@ def add_metric():
         cursor.execute("""
             INSERT INTO metrics (device_name, cpu_usage, memory_usage, disk_usage, status)
             OUTPUT INSERTED.id, INSERTED.timestamp
-            VALUES (?, ?, ?, ?, ?)
+            VALUES (%s, %s, %s, %s, %s)
         """,
         (
             data["device_name"],
